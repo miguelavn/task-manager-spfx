@@ -1,0 +1,21 @@
+{
+  "name": "SPFx 1.11 - Legacy Environment",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-20.04",
+
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "12.22.12"
+    }
+  },
+
+  "postCreateCommand": "npm install -g gulp-cli",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "msjsdiag.debugger-for-chrome"
+      ]
+    }
+  }
+}
