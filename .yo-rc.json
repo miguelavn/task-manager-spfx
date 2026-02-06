@@ -1,0 +1,23 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "whichFolder": "subdir",
+    "solutionName": "task-manager-spfx",
+    "environment": "spo",
+    "packageManager": "npm",
+    "useGulp": false,
+    "componentType": "webpart",
+    "template": "react",
+    "componentName": "TaskManagerHost",
+    "componentDescription": "Task Manager Full Screen App",
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "22.22.0",
+    "sdksVersions": {},
+    "version": "1.22.2",
+    "libraryName": "task-manager-spfx",
+    "libraryId": "8e93a056-c2ba-4cd9-963c-274c7e991457",
+    "solutionShortDescription": "task-manager-spfx description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false
+  }
+}

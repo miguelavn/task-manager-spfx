@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "task-manager-spfx-client-side-solution",
+    "id": "4e396455-718f-45ec-87ed-53876806b05f",
+    "version": "1.0.0.5",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": false,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.22.2"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "task-manager-spfx description"
+      },
+      "longDescription": {
+        "default": "task-manager-spfx description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "task-manager-spfx Feature",
+        "description": "The feature that activates elements of the task-manager-spfx solution.",
+        "id": "bd467920-4841-4abc-b7ac-fe8e8673043b",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/task-manager-spfx.sppkg"
+  }
+}

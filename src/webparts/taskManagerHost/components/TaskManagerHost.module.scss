@@ -1,0 +1,317 @@
+@import '~@fluentui/react/dist/sass/References.scss';
+
+.taskManagerHost {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: $ms-color-neutralLighterAlt;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: $ms-color-white;
+  }
+
+  .fullScreenContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 20px;
+    background-color: $ms-color-white;
+    z-index: 1000;
+    overflow-y: auto;
+  }
+
+  /* ENCABEZADO */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid $ms-color-themePrimary;
+  }
+
+  .title {
+    font-size: 32px;
+    font-weight: 600;
+    color: $ms-color-themeDark;
+    margin: 0;
+    flex: 1;
+  }
+
+  .fullScreenBtn {
+    background-color: $ms-color-themePrimary;
+    color: $ms-color-white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  /* MENSAJES DE ERROR */
+  .error {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $ms-color-neutralLighter;
+    border-left: 4px solid $ms-color-red;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    color: $ms-color-neutralPrimary;
+    font-weight: 500;
+  }
+
+  .closeErrorBtn {
+    background: none;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    color: $ms-color-neutralPrimary;
+    padding: 4px 8px;
+  }
+
+  /* FORMULARIO */
+  .form {
+    background-color: $ms-color-neutralLighter;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border: 1px solid $ms-color-neutralLight;
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      color: $ms-color-themeDark;
+      font-size: 20px;
+    }
+
+    .formGroup {
+      margin-bottom: 20px;
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: $ms-color-themeDark;
+        font-size: 14px;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid $ms-color-neutralLight;
+        border-radius: 4px;
+        font-size: 14px;
+        font-family: inherit;
+
+        &:focus {
+          outline: none;
+          border-color: $ms-color-themePrimary;
+        }
+
+        &:disabled {
+          background-color: $ms-color-neutralLighterAlt;
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    .buttonGroup {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+  }
+
+  /* BOTONES */
+  .submitBtn,
+  .cancelBtn,
+  .editBtn,
+  .deleteBtn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .submitBtn {
+    background-color: $ms-color-themePrimary;
+    color: $ms-color-white;
+    flex: 1;
+
+    &:disabled {
+      background-color: $ms-color-neutralTertiaryAlt;
+      cursor: not-allowed;
+    }
+  }
+
+  .cancelBtn {
+    background-color: $ms-color-neutralSecondary;
+    color: $ms-color-white;
+
+    &:disabled {
+      background-color: $ms-color-neutralTertiaryAlt;
+      cursor: not-allowed;
+    }
+  }
+
+  .editBtn {
+    background-color: $ms-color-themePrimary;
+    color: $ms-color-white;
+    flex: 1;
+
+    &:disabled {
+      background-color: $ms-color-neutralTertiaryAlt;
+      cursor: not-allowed;
+    }
+  }
+
+  .deleteBtn {
+    background-color: $ms-color-red;
+    color: $ms-color-white;
+    flex: 1;
+
+    &:disabled {
+      background-color: $ms-color-neutralTertiaryAlt;
+      cursor: not-allowed;
+    }
+  }
+
+  /* SECCIÓN DE TAREAS */
+  .tasksSection {
+    h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      color: $ms-color-themeDark;
+      font-size: 22px;
+    }
+  }
+
+  .loading,
+  .noTasks {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: $ms-color-neutralLighter;
+    border-radius: 8px;
+    color: $ms-color-neutralSecondary;
+    font-size: 16px;
+    border: 1px dashed $ms-color-neutralLight;
+  }
+
+  .loading {
+    font-weight: 600;
+    color: $ms-color-themePrimary;
+  }
+
+  /* LISTA DE TAREAS */
+  .tasksList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .taskCard {
+    background-color: $ms-color-white;
+    border: 1px solid $ms-color-neutralLight;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+
+    .taskHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 15px;
+      gap: 10px;
+
+      .taskTitle {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+        color: $ms-color-themeDark;
+        flex: 1;
+        word-break: break-word;
+      }
+
+      .status {
+        font-size: 12px;
+        font-weight: 600;
+        padding: 6px 12px;
+        border-radius: 20px;
+        white-space: nowrap;
+        text-transform: uppercase;
+
+        &.statusPendiente {
+          background-color: $ms-color-yellowLight;
+          color: $ms-color-neutralPrimary;
+        }
+
+        &.statusEnProgreso {
+          background-color: $ms-color-blueLight;
+          color: $ms-color-neutralPrimary;
+        }
+
+        &.statusCompletada {
+          background-color: $ms-color-greenLight;
+          color: $ms-color-neutralPrimary;
+        }
+
+        &.statusCancelada {
+          background-color: $ms-color-neutralLight;
+          color: $ms-color-neutralPrimary;
+        }
+      }
+    }
+
+    .taskInfo {
+      flex: 1;
+      margin-bottom: 15px;
+
+      .infoRow {
+        display: flex;
+        margin-bottom: 8px;
+        font-size: 14px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        .label {
+          font-weight: 600;
+          color: $ms-color-neutralSecondary;
+          min-width: 90px;
+        }
+
+        .value {
+          color: $ms-color-themeDark;
+          flex: 1;
+          word-break: break-word;
+        }
+      }
+    }
+
+    .taskActions {
+      display: flex;
+      gap: 10px;
+    }
+  }
+}
